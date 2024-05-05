@@ -50,7 +50,7 @@ class TestUserDocs(unittest.TestCase):
         errors = pep8style.check_files(['models/user.py'])
         self.assertEqual(errors.total_errors, 0, errors.messages)
 
-    def test_file_is_executable(self):
+    def test_file_if_executable(self):
         """... tests if file has correct permissions so user can execute"""
         file_stat = stat('models/user.py')
         permissions = str(oct(file_stat[0]))

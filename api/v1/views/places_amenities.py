@@ -35,7 +35,7 @@ def amenities_per_place(place_id=None):
 
 @app_views.route('/places/<place_id>/amenities/<amenity_id>',
                  methods=['DELETE', 'POST'])
-def amenity_to_place(place_id=None, amenity_id=None):
+def amenity_a_place(place_id=None, amenity_id=None):
     """
         reviews route to handle http methods for given review by ID
     """

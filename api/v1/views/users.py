@@ -9,8 +9,8 @@ from flasgger.utils import swag_from
 
 
 @app_views.route('/users/', methods=['GET', 'POST'])
-@swag_from('swagger_yaml/users_no_id.yml', methods=['GET', 'POST'])
-def users_no_id(user_id=None):
+@swag_from('swagger_yaml/users_without_id.yml', methods=['GET', 'POST'])
+def users_without_id(user_id=None):
     """
         users route that handles http requests with no ID given
     """

@@ -69,7 +69,7 @@ class BaseModel:
         for attr, val in attr_dict.items():
             setattr(self, attr, val)
 
-    def __is_serializable(self, obj_v):
+    def __iff_serializable(self, obj_v):
         """
             private: checks if object is serializable
         """
@@ -79,7 +79,7 @@ class BaseModel:
         except:
             return False
 
-    def bm_update(self, attr_dict=None):
+    def bmn_update(self, attr_dict=None):
         """
             updates the basemodel and sets the correct attributes
         """
@@ -109,7 +109,7 @@ class BaseModel:
         """
         obj_class = self.__class__.__name__
         bm_dict = {
-            k: v if self.__is_serializable(v) else str(v)
+            k: v if self.__iff_serializable(v) else str(v)
             for k, v in self.__dict__.items()
         }
         bm_dict.pop('_sa_instance_state', None)

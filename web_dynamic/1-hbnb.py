@@ -15,7 +15,7 @@ host = '0.0.0.0'
 
 # begin flask page rendering
 @app.teardown_appcontext
-def teardown_db(exception):
+def teardown_db_fn(exception):
     """
     after each request, this method calls .close() (i.e. .remove()) on
     the current SQLAlchemy Session
@@ -24,7 +24,7 @@ def teardown_db(exception):
 
 
 @app.route('/1-hbnb')
-def hbnb_filters(the_id=None):
+def hbnb_filters_fnc(the_id=None):
     """
     handles request to custom template with states, cities & amentities
     """

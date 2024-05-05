@@ -38,7 +38,7 @@ import sys
 import requests
 
 
-def __print_stdout(msg):
+def __pprint_stdout(msg):
     """Print message in STDOUT
     """
     sys.stdout.write(msg)
@@ -94,7 +94,7 @@ def __analyse(file_path):
                 __print_stderr("{}\n".format(msg))
                 nb_errors += 1
         else:
-            __print_stdout("{}: OK\n".format(file_path))
+            __pprint_stdout("{}: OK\n".format(file_path))
 
     except Exception as e:
         __print_stderr("[{}] {}\n".format(e.__class__.__name__, e))

@@ -9,8 +9,8 @@ from models import storage, CNC
 
 
 @app_views.route('/states', methods=['GET', 'POST'])
-@swag_from('swagger_yaml/states_no_id.yml', methods=['GET', 'POST'])
-def states_no_id():
+@swag_from('swagger_yaml/states_non_id.yml', methods=['GET', 'POST'])
+def states_non_id():
     """
         states route to handle http method for requested states no id provided
     """

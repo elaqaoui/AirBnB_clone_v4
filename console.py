@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Command interpreter for Holberton AirBnB project
+AirBnB project
 """
 import cmd
 from models import storage, CNC
@@ -8,7 +8,7 @@ from models import storage, CNC
 
 class HBNBCommand(cmd.Cmd):
     """
-    Command inerpreter class
+    inerpreter class
     """
     prompt = '(hbnb) '
     ERR = [
@@ -232,7 +232,7 @@ class HBNBCommand(cmd.Cmd):
         to_delete.delete()
         storage.save()
 
-    def __rremove(self, s, l):
+    def fc_rremove(self, s, l):
         """
         private: removes characters in the input list from input string
         """
@@ -240,7 +240,7 @@ class HBNBCommand(cmd.Cmd):
             s = s.replace(c, '')
         return s
 
-    def __check_dict(self, arg):
+    def func_check_dict(self, arg):
         """
         private: checks if the arguments input has a dictionary
         """
@@ -257,12 +257,12 @@ class HBNBCommand(cmd.Cmd):
         else:
             return None
 
-    def __handle_update_err(self, arg):
+    def func_handle_update_err(self, arg):
         """
         private: checks for all errors in update
         """
-        d = self.__check_dict(arg)
-        arg = self.__rremove(arg, [',', '"'])
+        d = self.func_check_dict(arg)
+        arg = self.fc_rremove(arg, [',', '"'])
         arg = arg.split()
         error = self.__class_err(arg)
         if not error:
@@ -293,7 +293,7 @@ class HBNBCommand(cmd.Cmd):
                  City.update(1234-abcd-5678-efgh, name, Chicago)
                  City.update(1234-abcd, {'name': 'Chicago', 'address': 'None'})
         """
-        arg_inv = self.__handle_update_err(arg)
+        arg_inv = self.func_handle_update_err(arg)
         if arg_inv[0]:
             arg = arg_inv[1]
             d = arg_inv[2]
@@ -313,37 +313,37 @@ class HBNBCommand(cmd.Cmd):
     def do_BaseModel(self, arg):
         """class method with .function() syntax
         Usage: BaseModel.<command>(<id>)"""
-        self.__parse_exec('BaseModel', arg)
+        self.func_parse_exec('BaseModel', arg)
 
     def do_Amenity(self, arg):
         """class method with .function() syntax
         Usage: Amenity.<command>(<id>)"""
-        self.__parse_exec('Amenity', arg)
+        self.func_parse_exec('Amenity', arg)
 
     def do_City(self, arg):
         """class method with .function() syntax
         Usage: City.<command>(<id>)"""
-        self.__parse_exec('City', arg)
+        self.func_parse_exec('City', arg)
 
     def do_Place(self, arg):
         """class method with .function() syntax
         Usage: Place.<command>(<id>)"""
-        self.__parse_exec('Place', arg)
+        self.func_parse_exec('Place', arg)
 
     def do_Review(self, arg):
         """class method with .function() syntax
         Usage: Review.<command>(<id>)"""
-        self.__parse_exec('Review', arg)
+        self.func_parse_exec('Review', arg)
 
     def do_State(self, arg):
         """class method with .function() syntax
         Usage: State.<command>(<id>)"""
-        self.__parse_exec('State', arg)
+        self.func_parse_exec('State', arg)
 
     def do_User(self, arg):
         """class method with .function() syntax
         Usage: User.<command>(<id>)"""
-        self.__parse_exec('User', arg)
+        self.func_parse_exec('User', arg)
 
     def __count(self, arg):
         """counts the number objects in File Storage"""
@@ -355,7 +355,7 @@ class HBNBCommand(cmd.Cmd):
                 count += 1
         print(count)
 
-    def __parse_exec(self, c, arg):
+    def func_parse_exec(self, c, arg):
         """
         private: parses the input from .function() syntax, calls matched func
         """
@@ -373,7 +373,7 @@ class HBNBCommand(cmd.Cmd):
             for k, v in CMD_MATCH.items():
                 if k == check[0]:
                     if ((',' or '"' in new_arg) and k != '.update'):
-                        new_arg = self.__rremove(new_arg, ['"', ','])
+                        new_arg = self.fc_rremove(new_arg, ['"', ','])
                     v(new_arg)
                     return
         self.default(arg)

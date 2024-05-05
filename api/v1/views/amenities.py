@@ -9,8 +9,8 @@ from flasgger.utils import swag_from
 
 
 @app_views.route('/amenities/', methods=['GET', 'POST'])
-@swag_from('swagger_yaml/amenities_no_id.yml', methods=['GET', 'POST'])
-def amenities_no_id(amenity_id=None):
+@swag_from('swagger_yaml/amenities_n_id.yml', methods=['GET', 'POST'])
+def amenities_n_id(amenity_id=None):
     """
         amenities route that handles http requests no ID given
     """
@@ -33,7 +33,7 @@ def amenities_no_id(amenity_id=None):
 
 @app_views.route('/amenities/<amenity_id>', methods=['GET', 'DELETE', 'PUT'])
 @swag_from('swagger_yaml/amenities_id.yml', methods=['GET', 'DELETE', 'PUT'])
-def amenities_with_id(amenity_id=None):
+def amenities__id(amenity_id=None):
     """
         amenities route that handles http requests with ID given
     """

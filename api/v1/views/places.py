@@ -12,7 +12,7 @@ STORAGE_TYPE = environ.get('HBNB_TYPE_STORAGE')
 
 @swag_from('swagger_yaml/places_by_city.yml', methods=['GET', 'POST'])
 @app_views.route('/cities/<city_id>/places', methods=['GET', 'POST'])
-def places_per_city(city_id=None):
+def places_pr_city(city_id=None):
     """
         places route to handle http method for requested places by city
     """
